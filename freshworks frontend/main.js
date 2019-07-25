@@ -7,7 +7,7 @@ let countries; // will contain "fetched" data
 // countriesList.addEventListener("change", event => displayCountryInfo(event.target.value));
 
 countriesList.addEventListener("change", newCountrySelection);
-
+// triggers display function
 function newCountrySelection(event) {
   displayCountryInfo(event.target.value);
   //alert(event.target.value);
@@ -27,7 +27,7 @@ function newCountrySelection(event) {
 // .catch(function(err){
 //   console.log("Error:", err);
 // });
-
+//fetch call
 fetch("https://restcountries.eu/rest/v2/all")
 .then(res => res.json())
 .then(data => initialize(data))
@@ -54,6 +54,7 @@ function initialize(countriesData) {
   countriesList.selectedIndex = Math.floor(Math.random()*countriesList.length);
   displayCountryInfo(countriesList[countriesList.selectedIndex].value);
 }
+// display return for html
 function displayCountryInfo(countryByAlpha3Code) {
  // alert(countryByAlpha3Code);
   const countryData = countries.find(country => country.alpha3Code === countryByAlpha3Code);
@@ -67,6 +68,7 @@ function displayCountryInfo(countryByAlpha3Code) {
   document.getElementById("region").innerHTML = countryData.region;
   document.getElementById("subregion").innerHTML = countryData.subregion;
 }
+// card image click function
 function myfunc()
 {
 	window.location="sample.html";
